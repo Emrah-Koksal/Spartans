@@ -19,7 +19,7 @@ Feature: Manage Spartans Army
       | id | name    |
       | 3  | Fidole  |
       | 7  | Hershel |
-      | 10 | Lorenzas |
+      | 10 | Lorenza |
       | 21 | Mark    |
 
 

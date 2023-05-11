@@ -1,9 +1,9 @@
-package spartans.step_definitions;
+package com.spartans.step_definitions;
 
+import com.spartans.utilities.DBUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import spartans.utilities.DBUtils;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package spartans.pages;
+package com.spartans.pages;
 
 public class Spartans_POJO {
 

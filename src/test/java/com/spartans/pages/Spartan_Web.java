@@ -1,9 +1,9 @@
-package spartans.pages;
+package com.spartans.pages;
 
+import com.spartans.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import spartans.utilities.Driver;
 
 public class Spartan_Web extends BasePage {
 

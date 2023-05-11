@@ -1,6 +1,7 @@
-package spartans.step_definitions;
+package com.spartans.step_definitions;
 
 import com.google.gson.Gson;
+import com.spartans.pages.Spartans_POJO;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +13,6 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
-import spartans.pages.Spartans_POJO;
 
 import java.util.List;
 import java.util.Map;
@@ -29,6 +29,7 @@ public class SpartansAPISteps {
         response = given().accept(ContentType.JSON)
                 .pathParam("id", int1)
                 .get("/api/spartans/{id}");
+
 
         response.prettyPrint();
         Assert.assertEquals(200, response.statusCode());
@@ -74,7 +75,7 @@ public class SpartansAPISteps {
         given().accept(ContentType.JSON)
                 .pathParam("id", int1)
                 .when().get("/api/spartans/{id}")
-                .then().assertThat().statusCode(200)
+                .then().statusCode(200)
                 .and().assertThat().contentType("application/json")
                 .and().assertThat().body("id", Matchers.equalTo(int1), "name", Matchers.equalTo("Meta"),
                         "gender", Matchers.equalTo("Female"));
@@ -94,8 +95,8 @@ public class SpartansAPISteps {
 
     }
 
-    @When("User checks and asserts API replies using De-Serialization Map Method of a Spartan with the ID of {int}")
-    public void user_checks_and_asserts_api_replies_using_de_serialization_map_method_of_a_spartan_with_the_id_of(Integer int1) {
+    @When("User checks and asserts API replies using De-Serialization Map Method of a Spartan with the ID of {int} and name {string}")
+public void user_checks_and_asserts_api_replies_using_de_serialization_map_method_of_a_spartan_with_the_id_of_and_name(Integer int1, String featureExpectedName) {
 
         Response response = given().accept(ContentType.JSON)
                 .pathParam("id", int1)
@@ -103,10 +104,15 @@ public class SpartansAPISteps {
 
         Map<String, Object> map = response.body().as(Map.class);
 
-        Assert.assertEquals(map.get("name"), "Meade");
+        Object actualName = map.get("name");
+        Object expectedName = featureExpectedName;
+
+        Assert.assertEquals(actualName, featureExpectedName);
         System.out.println(map.get("name"));
 
     }
+
+
 
     @When("User checks and asserts API replies using POJO of a Spartan with the ID of {int}")
     public void user_checks_and_asserts_api_replies_using_pojo_of_a_spartan_with_the_id_of(Integer int1) {
@@ -118,6 +124,7 @@ public class SpartansAPISteps {
         Spartans_POJO spartans_pojo = response.body().as(Spartans_POJO.class);
 
         System.out.println(spartans_pojo.toString());
+        System.out.println(spartans_pojo.getName());
 
     }
 

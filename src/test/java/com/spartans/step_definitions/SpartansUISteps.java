@@ -1,13 +1,13 @@
-package spartans.step_definitions;
+package com.spartans.step_definitions;
 
+import com.spartans.pages.Spartan_Web;
+import com.spartans.pages.Spartan_view_page;
+import com.spartans.utilities.ConfigurationReader;
+import com.spartans.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import spartans.pages.Spartan_Web;
-import spartans.pages.Spartan_view_page;
-import spartans.utilities.ConfigurationReader;
-import spartans.utilities.Driver;
 
 public class SpartansUISteps {
 
@@ -31,7 +31,6 @@ public class SpartansUISteps {
     public void verifies_the_name_of_spartan_is(String expectedname) {
         String actualname = UI_name;
         Assert.assertEquals("Name does not match", expectedname, actualname);
-
         System.out.println("actualname = " + actualname);
     }
 

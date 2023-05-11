@@ -1,4 +1,4 @@
-package spartans.utilities;
+package com.spartans.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

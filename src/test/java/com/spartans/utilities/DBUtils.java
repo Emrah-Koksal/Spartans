@@ -1,4 +1,4 @@
-package spartans.utilities;
+package com.spartans.utilities;
 
 import java.sql.*;
 import java.util.ArrayList;

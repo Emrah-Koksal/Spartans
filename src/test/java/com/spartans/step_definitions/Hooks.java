@@ -1,19 +1,17 @@
-package spartans.step_definitions;
+package com.spartans.step_definitions;
 
+import com.spartans.utilities.*;
 import io.restassured.RestAssured;
-import spartans.utilities.*;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import io.cucumber.java.*;
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
 
-
     @Before
     public void setUp(){
         Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        RestAssured.baseURI=ConfigurationReader.get("spartan.apiUrl");
+        RestAssured.baseURI= ConfigurationReader.get("spartan.apiUrl");
     }
 
     @After
