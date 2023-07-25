@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/spartans/step_definitions",
-        dryRun =false,
-        tags = "@api1"
+        dryRun =true,
+        tags = "@api_practice"
 
 )
 public class CukesRunner {

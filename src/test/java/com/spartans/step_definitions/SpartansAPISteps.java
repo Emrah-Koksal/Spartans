@@ -1,19 +1,15 @@
 package com.spartans.step_definitions;
-
 import com.google.gson.Gson;
 import com.spartans.pages.Spartans_POJO;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static io.restassured.RestAssured.*;
-
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
-
 import java.util.List;
 import java.util.Map;
 
@@ -32,9 +28,9 @@ public class SpartansAPISteps {
 
 
         response.prettyPrint();
-        Assert.assertEquals(200, response.statusCode());
-        Assert.assertEquals(response.contentType(), "application/json");
-        Assert.assertEquals(response.header("Transfer-Encoding"), "chunked");
+        Assert.assertEquals("response code does not match",200, response.statusCode());
+        Assert.assertEquals("application/json", response.contentType());
+        Assert.assertEquals("chunked",response.header("Transfer-Encoding"));
 
         JsonPath jsonPath = response.jsonPath();
         apiName = jsonPath.getString("name");
