@@ -71,7 +71,7 @@ public class SpartansAPISteps {
         given().accept(ContentType.JSON)
                 .pathParam("id", int1)
                 .when().get("/api/spartans/{id}")
-                .then().statusCode(200)
+                .then().assertThat().statusCode(200)
                 .and().assertThat().contentType("application/json")
                 .and().assertThat().body("id", Matchers.equalTo(int1), "name", Matchers.equalTo("Meta"),
                         "gender", Matchers.equalTo("Female"));
