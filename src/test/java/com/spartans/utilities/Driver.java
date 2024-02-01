@@ -36,6 +36,12 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     break;
+                case "headless-chrome":
+                    WebDriverManager.chromedriver().setup();
+                    ChromeOptions option=new ChromeOptions();
+                    option.setHeadless(true);
+                    driverPool.set(new ChromeDriver(option));
+                    break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
