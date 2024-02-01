@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.List;
 import java.util.Map;
 
 public class SpartansDBSteps {
@@ -25,6 +26,13 @@ public class SpartansDBSteps {
 
         String actualName=DBname;
         Assert.assertEquals("Name doesn't match with DB",expectedName,actualName);
+        String query2="select * from spartans";
+        List<Map<String, Object>> column= DBUtils.getQueryResultMap(query2);
+        System.out.println("column.get(2) = " + column.get(2));
+
+        List<String> sutun = DBUtils.getColumnNames(query2);
+
+        System.out.println("sutun.get(4) = " + sutun.get(2));
 
     }
 

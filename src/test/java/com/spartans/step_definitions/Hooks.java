@@ -10,13 +10,13 @@ public class Hooks {
 
     @Before
     public void setUp(){
-     // Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS)
+        Driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         RestAssured.baseURI= ConfigurationReader.get("spartan.apiUrl");
     }
 
     @After
     public void tearDown(){
-    //  Driver.closeDriver();
+     Driver.closeDriver();
     }
 
     @Before("@db")
